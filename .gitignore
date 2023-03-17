@@ -17,6 +17,7 @@ common/src/config.json
 # misc
 /.env
 */.env
+.env
 .DS_Store
 .env.local
 .env.development.local
