@@ -13,7 +13,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const userController_1 = require("./controllers/userController");
 //Router Config -->
 const app = (0, express_1.default)();
-const port = 4001;
+const port = process.env.PORT;
 //MiddleWares -->
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());

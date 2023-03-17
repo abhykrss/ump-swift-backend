@@ -15,7 +15,7 @@ import {
 
 //Router Config -->
 const app: Express = express();
-const port = 4001;
+const port = process.env.PORT;
 
 //MiddleWares -->
 app.use(bodyParser.urlencoded({ extended: false }));
