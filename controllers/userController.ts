@@ -12,33 +12,49 @@ export const home = (req: Request, res: Response) => {
 };
 
 export const usertype = async (req: Request, res: Response) => {
-  try {
-    const userType = await userTypeQuery(req.body.id);
-    res.send(userType);
-  } catch (error) {
-    res.send(error);
+  if (req.body.id === undefined)
+    res.send("Not enough detailes provided by the user");
+  else {
+    try {
+      const userType = await userTypeQuery(req.body.id);
+      res.send(userType);
+    } catch (error) {
+      res.send(error);
+    }
   }
 };
 
 export const updateAttendance = async (req: Request, res: Response) => {
-  try {
-    await attendanceQuery(
-      req.body.attendance,
-      req.body.id,
-      req.body.training_id
-    );
-    res.send("changed Attendance");
-  } catch (error) {
-    res.send(error);
+  if (
+    req.body.attendance === undefined ||
+    req.body.id === undefined ||
+    req.body.training_id === undefined
+  )
+    res.send("Not enough detailes provided by the user");
+  else {
+    try {
+      await attendanceQuery(
+        req.body.attendance,
+        req.body.id,
+        req.body.training_id
+      );
+      res.send("changed Attendance");
+    } catch (error) {
+      res.send(error);
+    }
   }
 };
 
 export const updatePhotoId = async (req: Request, res: Response) => {
-  try {
-    await photoIdQuery(req.body.id);
-    res.send("changed photoid");
-  } catch (error) {
-    res.send(error);
+  if (req.body.id === undefined)
+    res.send("Not enough detailes provided by the user");
+  else {
+    try {
+      await photoIdQuery(req.body.id);
+      res.send("changed photoid");
+    } catch (error) {
+      res.send(error);
+    }
   }
 };
 
