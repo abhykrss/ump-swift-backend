@@ -8,7 +8,7 @@ import {
 } from "../db/queries/query";
 
 export const home = (req: Request, res: Response) => {
-  res.send("Home Backend Swift");
+  res.send("Backend Swift Home Route");
 };
 
 export const usertype = async (req: Request, res: Response) => {
