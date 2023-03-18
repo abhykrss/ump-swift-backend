@@ -21,8 +21,6 @@ const port = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const userID = "9d06c064-c168-11ed-98e6-bb09c0346e5c";
-
 //Routes -->
 app.get("/", home);
 
