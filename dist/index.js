@@ -4,9 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 //Configuring ENVIRONMENT variables
-// import dotenv from "dotenv";
-// if (process.env.NODE_ENV === "dev") dotenv.config();
-// console.log(process.env.NODE_ENV);
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 //Crucial Imports -->
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
@@ -17,7 +16,6 @@ const port = process.env.PORT;
 //MiddleWares -->
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
-const userID = "9d06c064-c168-11ed-98e6-bb09c0346e5c";
 //Routes -->
 app.get("/", userController_1.home);
 app.get("/users", userController_1.usersFetch);

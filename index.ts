@@ -1,7 +1,7 @@
 //Configuring ENVIRONMENT variables
-// import dotenv from "dotenv";
-// if (process.env.NODE_ENV === "dev") dotenv.config();
-// console.log(process.env.NODE_ENV);
+import dotenv from "dotenv";
+dotenv.config();
+
 //Crucial Imports -->
 import express, { Express } from "express";
 import bodyParser from "body-parser";

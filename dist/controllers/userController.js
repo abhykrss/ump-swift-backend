@@ -12,36 +12,50 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.usersFetch = exports.updatePhotoId = exports.updateAttendance = exports.usertype = exports.home = void 0;
 const query_1 = require("../db/queries/query");
 const home = (req, res) => {
-    res.send("Home Backend Swift");
+    res.send("Backend Swift Home Route");
 };
 exports.home = home;
 const usertype = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const userType = yield (0, query_1.userTypeQuery)(req.body.id);
-        res.send(userType);
-    }
-    catch (error) {
-        res.send(error);
+    if (req.body.id === "")
+        res.send("Not enough detailes provided by the user");
+    else {
+        try {
+            const userType = yield (0, query_1.userTypeQuery)(req.body.id);
+            res.send(userType);
+        }
+        catch (error) {
+            res.send(error);
+        }
     }
 });
 exports.usertype = usertype;
 const updateAttendance = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        yield (0, query_1.attendanceQuery)(req.body.attendance, req.body.id, req.body.training_id);
-        res.send("changed Attendance");
-    }
-    catch (error) {
-        res.send(error);
+    if (req.body.attendance === "" ||
+        req.body.id === "" ||
+        req.body.training_id === "")
+        res.send("Not enough detailes provided by the user");
+    else {
+        try {
+            yield (0, query_1.attendanceQuery)(req.body.attendance, req.body.id, req.body.training_id);
+            res.send("changed Attendance");
+        }
+        catch (error) {
+            res.send(error);
+        }
     }
 });
 exports.updateAttendance = updateAttendance;
 const updatePhotoId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        yield (0, query_1.photoIdQuery)(req.body.id);
-        res.send("changed photoid");
-    }
-    catch (error) {
-        res.send(error);
+    if (req.body.id === "")
+        res.send("Not enough detailes provided by the user");
+    else {
+        try {
+            yield (0, query_1.photoIdQuery)(req.body.id);
+            res.send("changed photoid");
+        }
+        catch (error) {
+            res.send(error);
+        }
     }
 });
 exports.updatePhotoId = updatePhotoId;
