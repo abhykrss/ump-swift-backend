@@ -52,9 +52,11 @@ export const updateAttendance = async (req: Request, res: Response) => {
     req.body.attendance === "" ||
     req.body.id === "" ||
     req.body.training_id === ""
-  )
+  ) {
     res.send("Not enough detailes provided by the user");
-  else {
+  } else if (req.body.attendance > 100 || req.body.attendance < 1) {
+    res.send("Enter a Valid Attendance (1-100");
+  } else {
     try {
       await attendanceQuery(
         req.body.attendance,
