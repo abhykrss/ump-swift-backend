@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin:
-      "https://641a05e936477b0008b0fb11--stellular-maamoul-1bdee3.netlify.app",
+      "https://641a0a75d2d688026fe69f5d--stellular-maamoul-1bdee3.netlify.app",
   })
 );
 //Routes -->
