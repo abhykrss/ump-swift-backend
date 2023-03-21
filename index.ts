@@ -19,7 +19,7 @@ import {
 const app: Express = express();
 const port = process.env.PORT;
 const frontEndUrl =
-  "https://641a1180391cd109aab35d77--stellular-maamoul-1bdee3.netlify.app/";
+  "https://641a1180391cd109aab35d77--stellular-maamoul-1bdee3.netlify.app";
 //MiddleWares -->
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
