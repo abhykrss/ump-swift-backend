@@ -11,6 +11,7 @@ import {
   usertype,
   updateAttendance,
   updatePhotoId,
+  trainingInfo,
 } from "./controllers/userController";
 
 //Router Config -->
@@ -25,6 +26,8 @@ app.use(bodyParser.json());
 app.get("/", home);
 
 app.get("/users", usersFetch);
+
+app.get("/trainingInfo", trainingInfo);
 
 app.put("/userType", usertype);
 

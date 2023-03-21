@@ -1,29 +1,6 @@
 import { database } from "../config/config";
 
-export const attendanceQuery = async (
-  attendance: Number,
-  id: any,
-  training_id: any
-) => {
-  try {
-    return await database.query(
-      `UPDATE training_user SET attendance=${attendance} WHERE user_id='${id}' and training_id='${training_id}'`
-    );
-  } catch (error) {
-    return error;
-  }
-};
-
-export const photoIdQuery = async (id: any) => {
-  try {
-    return await database.query(
-      `UPDATE app_users SET photo_id=true WHERE id='${id}'`
-    );
-  } catch (error) {
-    return error;
-  }
-};
-
+//Getting User Type SQL Query-->
 export const userTypeQuery = async (id: any) => {
   try {
     const userTypeIdJSON: any = await database.query(
@@ -40,6 +17,7 @@ export const userTypeQuery = async (id: any) => {
   }
 };
 
+//Getting Users data SQL Query-->
 export const usersFetchQuery = async () => {
   try {
     const users = await database.query(
@@ -57,6 +35,50 @@ export const usersFetchQuery = async () => {
     ON users.id = trainings.user_id`
     );
     return users;
+  } catch (error) {
+    return error;
+  }
+};
+
+//Getting Trainings Informations SQL Query-->
+export const trainingInfoQuery = async () => {
+  try {
+    const trainingInfo = await database.query(
+      `SELECT
+      centre_name,
+      centre_number,
+      start_date,
+      end_date,
+      duration
+      FROM trainings`
+    );
+    return trainingInfo;
+  } catch (error) {
+    return error;
+  }
+};
+
+//Updating Attendance SQL Query-->
+export const attendanceQuery = async (
+  attendance: Number,
+  id: any,
+  training_id: any
+) => {
+  try {
+    return await database.query(
+      `UPDATE training_user SET attendance=${attendance} WHERE user_id='${id}' and training_id='${training_id}'`
+    );
+  } catch (error) {
+    return error;
+  }
+};
+
+//Updating PhotoId SQL Query-->
+export const photoIdQuery = async (id: any, change: any) => {
+  try {
+    return await database.query(
+      `UPDATE app_users SET photo_id=${change} WHERE id='${id}'`
+    );
   } catch (error) {
     return error;
   }
