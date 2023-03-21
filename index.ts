@@ -1,6 +1,6 @@
 //Configuring ENVIRONMENT variables
-// import dotenv from "dotenv";
-// dotenv.config();
+import dotenv from "dotenv";
+dotenv.config();
 
 //Crucial Imports -->
 import express, { Express } from "express";
@@ -21,7 +21,12 @@ const port = process.env.PORT;
 //MiddleWares -->
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(
+  cors({
+    origin:
+      "https://641a05e936477b0008b0fb11--stellular-maamoul-1bdee3.netlify.app",
+  })
+);
 //Routes -->
 app.get("/", home);
 
