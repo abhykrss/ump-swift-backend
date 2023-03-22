@@ -32,7 +32,8 @@ export const usersFetchQuery = async () => {
     trainings.training_id
     FROM app_users AS users 
     JOIN training_user AS trainings
-    ON users.id = trainings.user_id`
+    ON users.id = trainings.user_id
+    ORDER BY user.user_name`
     );
     return users;
   } catch (error) {
