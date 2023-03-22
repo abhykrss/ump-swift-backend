@@ -44,13 +44,18 @@ export const usersFetchQuery = async () => {
 export const trainingInfoQuery = async () => {
   try {
     const trainingInfo = await database.query(
-      `SELECT
-      centre_name,
-      centre_number,
-      start_date,
-      end_date,
-      duration
-      FROM trainings`
+      `SELECT 
+      users.id,
+      users.user_name,
+      users.dob,
+      users.email,
+      users.photo_id,
+      users.user_name,
+      trainings.attendance,
+      trainings.training_id
+      FROM app_users AS users 
+      JOIN training_user AS trainings
+      ON users.id = trainings.user_id`
     );
     return trainingInfo;
   } catch (error) {
