@@ -1,6 +1,6 @@
 //Configuring ENVIRONMENT variables
-// import dotenv from "dotenv";
-// dotenv.config();
+import dotenv from "dotenv";
+dotenv.config();
 
 //Crucial Imports -->
 import express, { Express } from "express";
@@ -18,6 +18,7 @@ import {
 //Router Config -->
 const app: Express = express();
 const port = process.env.PORT;
+const appUrl = process.env.APP_URL;
 
 //MiddleWares -->
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,5 +43,5 @@ app.put("/updateAttendance", updateAttendance);
 
 app.listen(port, () => {
   console.log(`Server listening to Port ${port}`);
-  console.log(`Front-End hosted on ${process.env.APP_URL}`);
+  console.log(`Front-End hosted on ${appUrl}`);
 });
