@@ -18,14 +18,14 @@ import {
 //Router Config -->
 const app: Express = express();
 const port = process.env.PORT;
-const appUrl1 = process.env.APP_URL1;
-const appUrl2 = process.env.APP_URL2;
+const appUrl = process.env.APP_URL;
+
 //MiddleWares -->
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: [appUrl1, appUrl2],
+    origin: appUrl,
   })
 );
 //Routes -->
@@ -43,5 +43,5 @@ app.put("/updateAttendance", updateAttendance);
 
 app.listen(port, () => {
   console.log(`Server listening to Port ${port}`);
-  console.log(`Front-End hosted on ${appUrl1 || appUrl2}`);
+  console.log(`Front-End hosted on ${appUrl}`);
 });
