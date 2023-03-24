@@ -1,6 +1,6 @@
 //Configuring ENVIRONMENT variables
-import dotenv from "dotenv";
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
 //Crucial Imports -->
 import express, { Express } from "express";
