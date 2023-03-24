@@ -17,7 +17,7 @@ import {
 
 //Router Config -->
 const app: Express = express();
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT;
 const appUrl = process.env.APP_URL;
 
 //MiddleWares -->
